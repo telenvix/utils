@@ -1,0 +1,33 @@
+# GIT - github
+
+## configure user-name and email
+### https://docs.github.com/en/get-started/quickstart/set-up-git
+git config --global user.name "yourusername"
+git config --global user.email "youruser@email.com"
+
+### verify
+git config --global user.name
+git config --global user.email
+
+
+# add ssh key for secure connection
+
+## check for exisiting ssh
+### https://docs.github.com/en/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys
+ls -al ~/.ssh
+
+## generate new ssh key
+### https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+ssh-keygen -t ed25519 -C "youruser@email.com"
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+
+## add new ssh key to rou account
+### https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
+cat ~/.ssh/id_ed25519.pub
+
+# clone repository (ssh adress)
+git clone https://github.com/username/project.git
+
+
+
